@@ -1,0 +1,12 @@
+
+[	java:S112`"FDefine and throw a dedicated exception instead of using a generic one.(»Λµ
+@
+java:S5411G"*Use the primitive boolean expression here.(‰Σ
+<
+java:S14521"&Remove usage of generic wildcard type.(—­θ€
+h
+java:S6204;"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨Ή
+a
+java:S1612:"KReplace this lambda with method reference 'GrantedAuthority::getAuthority'.(΅©ι½
+A
+java:S1452F"&Remove usage of generic wildcard type.(ιγ°ιϊÿÿÿÿ
