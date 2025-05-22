@@ -64,13 +64,25 @@ public class WebSecurityConfig {
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
+                        // Allow Swagger/OpenAPI endpoints without auth
+                        .requestMatchers(
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html"
+                        ).permitAll()
+
+                        // Auth endpoints
                         .requestMatchers("/api/auth/signin").permitAll()
                         .requestMatchers("/api/auth/**").permitAll()
+
+                        // Role-based and authenticated endpoints
                         .requestMatchers(HttpMethod.DELETE, "/api/items/{id}").hasRole("WAREHOUSE_MANAGER")
                         .requestMatchers("/api/inventory/**").authenticated()
                         .requestMatchers("/api/items/**").authenticated()
                         .requestMatchers("/api/orders/**").authenticated()
                         .requestMatchers("/api/trucks/**").hasRole("WAREHOUSE_MANAGER")
+
+                        // All other requests require authentication
                         .anyRequest().authenticated()
                 );
 
@@ -79,8 +91,6 @@ public class WebSecurityConfig {
 
         return http.build();
     }
-
-
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {

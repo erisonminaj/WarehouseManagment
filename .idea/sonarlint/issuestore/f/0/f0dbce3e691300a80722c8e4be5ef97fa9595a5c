@@ -1,9 +1,0 @@
-
-h
-java:S3305#"RInject this field value directly into "filterChain", the only method that uses it.(†€Ú³
-x
-java:S3305 "]Inject this field value directly into "authenticationProvider", the only method that uses it.(ñÊ®¤ùÿÿÿÿ
-g
-java:S1612>"LReplace this lambda with method reference 'AbstractHttpConfigurer::disable'.(¹¥ë¹øÿÿÿÿ
-I
-java:S1128"3Remove this unused import 'jakarta.servlet.Filter'.(ÏíÉí
